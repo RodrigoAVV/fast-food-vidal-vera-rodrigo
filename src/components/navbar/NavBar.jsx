@@ -1,45 +1,53 @@
 import React from 'react'
+import CartWidget from '../cartwidget/CartWidget'
 
 const NavBar = () => {
+  //Se pueden declarar funciones y llamarlas con evento click
+  const itemListContainer = () => {
+    
+  }
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#">Navbar</a>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="#">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Link</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Promociones
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Boards</a></li>
-                <li><a class="dropdown-item" href="#">Boxes</a></li>
-                <li><a class="dropdown-item" href="#">San viernes</a></li>
-                <li><hr class="dropdown-divider"/></li>
-                <li><a class="dropdown-item" href="#">Ofertas</a></li>
-                <li><a class="dropdown-item" href="#">Destacados</a></li>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a className="dropdown-item" href="#">Boards</a></li>
+                <li><a className="dropdown-item" href="#">Boxes</a></li>
+                <li><a className="dropdown-item" href="#">San viernes</a></li>
+                <li><hr className="dropdown-divider"/></li>
+                <li><a className="dropdown-item" href="#">Ofertas</a></li>
+                <li><a className="dropdown-item" href="#">Destacados</a></li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
+            <li className="nav-item">
+              <a className="nav-link disabled">Disabled</a>
             </li>
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-            <button class="btn btn-outline-success" type="submit">Search</button>
+          <CartWidget/>
+          <form className="d-flex">
+            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+            <button className="btn btn-outline-success" type="submit">Search</button>
           </form>
         </div>
       </div>
+      
     </nav>
+    
   )
 }
 export default NavBar
