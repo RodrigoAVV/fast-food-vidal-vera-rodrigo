@@ -2,10 +2,7 @@ import React from 'react'
 import CartWidget from '../cartwidget/CartWidget'
 
 const NavBar = () => {
-  //Se pueden declarar funciones y llamarlas con evento click
-  const itemListContainer = () => {
-    
-  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">

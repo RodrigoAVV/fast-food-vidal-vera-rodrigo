@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import ProductList from '../productlist/ProductList'
+import ProductList from './ProductList'
 const ItemListContainer = () => {
-  const [aux,setAux] = useState([])
+  const [productData,setProductData] = useState([])
   useEffect(() => {
     let productos = [
       {"codigo":120,"nombre":"Papas surtido","descripcion":"Papas fritas con carne de pollo y salsa a elección","precio":6800,"imagen":"papas-surtido.jpg","recomendado":true},
@@ -22,17 +22,15 @@ const ItemListContainer = () => {
         res(productos)
       },2000)
     })
-
-    promesProductos.then((items) => {
-      setAux(items);
+    
+    promesProductos.then((res) => {
+      setProductData(res);
     })
-},[])
+  },[])
 
   return(
-          <> <ProductList productos={aux}/> </>
+          <> <ProductList productData={productData}/> </>
         )
   
 }
 export default ItemListContainer
-//<ItemCount stock='15' initial='1'/><br/>
-//<ProductList products = {aux}/>

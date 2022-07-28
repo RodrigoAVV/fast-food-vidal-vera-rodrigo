@@ -5,8 +5,7 @@ function App() {
   return (
     <>
       <NavBar/>
-      <h3>Ofertas de la semana</h3>
-      <ItemListContainer titulo="Card title"/>
+      <ItemListContainer/>
     </>
   )
 }
