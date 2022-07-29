@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import ProductList from './ProductList'
 const ItemListContainer = () => {
   const [productData,setProductData] = useState([])
+
   useEffect(() => {
-    let productos = [
+    const productos = [
       {"codigo":120,"nombre":"Papas surtido","descripcion":"Papas fritas con carne de pollo y salsa a elección","precio":6800,"imagen":"papas-surtido.jpg","recomendado":true},
       {"codigo":121,"nombre":"Papas, pollo y asado","descripcion":"Papas fritas con pollo asado","precio":7900,"imagen":"papas-pollo-asado.jpg","recomendado":false},
       {"codigo":122,"nombre":"Papas con cebolla","descripcion":"Papas fritas con cebolla frita","precio":4600,"imagen":"papas-cebolla.jpg","recomendado":false},
@@ -17,6 +18,7 @@ const ItemListContainer = () => {
       {"codigo":130,"nombre":"Sándwich de pollo","descripcion":"Sándwich de pollo, palta, tomate y salsa","precio":6300,"imagen":"sándwich-pollo.jpg","recomendado":false},
       {"codigo":131,"nombre":"Sándwich simple","descripcion":"Sándwich queso y jamón","precio":2000,"imagen":"sándwich-simple.jpg","recomendado":false}
     ]
+    
     const promesProductos = new Promise((res,rej) => {
       setTimeout(() => {
         res(productos)
@@ -27,7 +29,7 @@ const ItemListContainer = () => {
       setProductData(res);
     })
   },[])
-
+  
   return(
           <> <ProductList productData={productData}/> </>
         )
