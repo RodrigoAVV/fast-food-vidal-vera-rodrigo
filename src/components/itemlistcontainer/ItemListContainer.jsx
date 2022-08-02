@@ -31,8 +31,9 @@ const ItemListContainer = () => {
   },[])
   
   return(
-          <> <ProductList productData={productData}/> </>
+          <div className="row">
+            <ProductList productData={productData}/>
+          </div>
         )
-  
 }
 export default ItemListContainer
