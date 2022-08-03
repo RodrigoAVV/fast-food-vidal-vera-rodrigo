@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import ProductList from './ProductList'
+import { useParams } from 'react-router-dom'
+
 const ItemListContainer = () => {
   const [productData,setProductData] = useState([])
-
+  const {categoriaId} = useParams()
+  console.log(categoriaId)
   useEffect(() => {
     const productos = [
       {"codigo":120,"nombre":"Papas surtido","descripcion":"Papas fritas con carne de pollo y salsa a elección","precio":6800,"imagen":"papas-surtido.jpg","recomendado":true},
@@ -21,7 +24,12 @@ const ItemListContainer = () => {
     
     const promesProductos = new Promise((res,rej) => {
       setTimeout(() => {
-        res(productos)
+        if(!categoriaId){
+          res(productos)
+        }else{
+          res(productos.filter((producto) => producto.codigo == categoriaId))
+        }
+       
       },2000)
     })
     
