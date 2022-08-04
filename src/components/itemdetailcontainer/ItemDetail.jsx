@@ -13,6 +13,7 @@ const ItemDetail = ({product}) => {
             <div className="card-body">
                 <h5 className="card-title">{product.nombre}</h5>
                 <p className="card-text">{product.descripcion}</p>
+                <p className="card-text">{product.categoria}</p>
                 <p className="card-text">{product.precio}</p>
                 <p className="card-text">{product.recomendado ? 'Recomendado' : ''}</p>
                 <ItemCount/>
