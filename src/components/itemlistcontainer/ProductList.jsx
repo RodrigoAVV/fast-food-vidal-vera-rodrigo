@@ -1,8 +1,6 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import Products from '../products/Products'
-
 const ProductList = ({productData}) => {
-     //console.log(productData)
     return(
         <>
             {
@@ -12,7 +10,5 @@ const ProductList = ({productData}) => {
             }
         </>
     )
-    
 }
-
 export default ProductList

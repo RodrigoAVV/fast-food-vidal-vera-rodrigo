@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import ProductList from './ProductList'
+import React, {Suspense, useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
+const ProductList = React.lazy(()=>import('../itemlistcontainer/ProductList'))
+import Loader from '../loader/Loader'
 
 const ItemListContainer = () => {
   const [productData,setProductData] = useState([])
@@ -40,7 +41,9 @@ const ItemListContainer = () => {
   
   return(
           <div className="row">
-            <ProductList productData={productData}/>
+            <Suspense fallback={<Loader/>}>
+              <ProductList productData={productData}/>
+            </Suspense>
           </div>
         )
 }

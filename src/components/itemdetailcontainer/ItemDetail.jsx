@@ -3,8 +3,6 @@ import ItemCount from '../../components/itemcount/ItemCount'
 
 
 const ItemDetail = ({product}) => {
-    JSON.stringify(product)
-    console.log(product)
     return(
         
         <div className="col-sm-3" style={{marginTop:10}}>
