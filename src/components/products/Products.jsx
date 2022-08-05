@@ -6,16 +6,14 @@ const Products = ({producto}) => {
     console.log(producto)
     return(
         <div className="card">
-            <img src={pollo_papas_fritas} className="card-img-top" alt="..."/>
+            <img src={"/src/components/products/img/"+producto.imagen} className="card-img-top" alt="..."/>
             <div className="card-body">
                 <h5 className="card-title">{producto.nombre}</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p className="card-text">{producto.descripcion}</p>
                 <ItemCount/>
             </div>
         </div>
-        
     )
-    
 }
 
 export default Products
