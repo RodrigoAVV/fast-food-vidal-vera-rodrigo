@@ -1,7 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 import './ItemCount.css'
-const ItemCount = ({initial,stock}) => {
+const ItemCount = () => {
+  let initial = 1
+  let stock = 15
   const [cantidad,setCantidad] = useState(initial)
 
   const sumar = () => {

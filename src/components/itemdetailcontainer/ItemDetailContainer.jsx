@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import ProductList from './ProductList'
+import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom'
 
-const ItemListContainer = () => {
-  const [productData,setProductData] = useState([])
-  const {categoriaId} = useParams()
+const ItemDetailContainer = () => {
+
+  const [product,setProduct] = useState([])
+
+  const {id} = useParams()
 
   useEffect(() => {
     const productos = [
@@ -22,26 +24,28 @@ const ItemListContainer = () => {
       {"codigo":131,"nombre":"Sándwich simple","descripcion":"Sándwich queso y jamón","precio":2000,"imagen":"sándwich-simple.jpg","recomendado":false,"categoria":"sándwich"}
     ]
     
-    const promesProductos = new Promise((res,rej) => {
+    const promesProducts = new Promise((res,rej) => {
       setTimeout(() => {
-        if(!categoriaId){
-          res(productos)
-        }else{
-          res(productos.filter((producto) => producto.categoria == categoriaId))
+        if(id){
+          res(productos.filter((producto) => producto.codigo == id))
         }
-       
       },2000)
     })
     
-    promesProductos.then((res) => {
-      setProductData(res);
+    promesProducts.then((res) => {
+      setProduct(res);
     })
-  },[categoriaId])
+  },[id])
   
   return(
           <div className="row">
-            <ProductList productData={productData}/>
+            {
+            product.map((product) => {
+                return <ItemDetail key={product.codigo} product={product}/>
+            })
+            }
+            
           </div>
         )
 }
-export default ItemListContainer
+export default ItemDetailContainer
