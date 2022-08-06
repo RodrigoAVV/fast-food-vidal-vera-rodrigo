@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import ItemDetail from './ItemDetail'
+import React, { Suspense,useEffect, useState } from 'react'
+const ItemDetail = React.lazy(()=>import('./ItemDetail'))
+import Loader from '../loader/Loader'
 import { useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () => {
@@ -38,6 +39,7 @@ const ItemDetailContainer = () => {
   },[id])
   
   return(
+        <Suspense fallback={<Loader/>}>
           <div className="row">
             {
             product.map((product) => {
@@ -46,6 +48,7 @@ const ItemDetailContainer = () => {
             }
             
           </div>
+          </Suspense>
         )
 }
 export default ItemDetailContainer

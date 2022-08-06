@@ -40,11 +40,11 @@ const ItemListContainer = () => {
   },[categoriaId])
   
   return(
+      <Suspense fallback={<Loader/>}>
           <div className="row">
-            <Suspense fallback={<Loader/>}>
               <ProductList productData={productData}/>
-            </Suspense>
           </div>
+      </Suspense>
         )
 }
 export default ItemListContainer
