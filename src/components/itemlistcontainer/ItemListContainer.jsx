@@ -1,10 +1,11 @@
-import React, {Suspense, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
-const ProductList = React.lazy(()=>import('../itemlistcontainer/ProductList'))
+import ProductList from '../itemlistcontainer/ProductList'
 import Loader from '../loader/Loader'
 
 const ItemListContainer = () => {
   const [productData,setProductData] = useState([])
+  const [loading,setLoading]=useState(true)
   const {categoriaId} = useParams()
 
   useEffect(() => {
@@ -25,26 +26,24 @@ const ItemListContainer = () => {
     
     const promesProductos = new Promise((res,rej) => {
       setTimeout(() => {
+        setLoading(false)
         if(!categoriaId){
           res(productos)
         }else{
           res(productos.filter((producto) => producto.categoria == categoriaId))
         }
-       
       },2000)
     })
     
     promesProductos.then((res) => {
       setProductData(res);
     })
-  },[categoriaId])
+  },[productData,loading,categoriaId])
   
   return(
-      <Suspense fallback={<Loader/>}>
           <div className="row">
-              <ProductList productData={productData}/>
+              {loading? <Loader/>: <ProductList productData={productData}/>}
           </div>
-      </Suspense>
         )
 }
 export default ItemListContainer

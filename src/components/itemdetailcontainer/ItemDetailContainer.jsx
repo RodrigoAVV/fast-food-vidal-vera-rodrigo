@@ -1,5 +1,5 @@
-import React, { Suspense,useEffect, useState } from 'react'
-const ItemDetail = React.lazy(()=>import('./ItemDetail'))
+import React, { useEffect, useState } from 'react'
+import ItemDetail from './ItemDetail'
 import Loader from '../loader/Loader'
 import { useParams } from 'react-router-dom'
 
@@ -8,6 +8,8 @@ const ItemDetailContainer = () => {
   const [product,setProduct] = useState([])
 
   const {id} = useParams()
+
+  const [loading,setLoading]=useState(true)
 
   useEffect(() => {
     const productos = [
@@ -27,6 +29,7 @@ const ItemDetailContainer = () => {
     
     const promesProducts = new Promise((res,rej) => {
       setTimeout(() => {
+        setLoading(false)
         if(id){
           res(productos.filter((producto) => producto.codigo == id))
         }
@@ -36,19 +39,17 @@ const ItemDetailContainer = () => {
     promesProducts.then((res) => {
       setProduct(res);
     })
-  },[id])
+  },[product,id,loading])
   
   return(
-        <Suspense fallback={<Loader/>}>
           <div className="row">
             {
             product.map((product) => {
-                return <ItemDetail key={product.codigo} product={product}/>
+                return  loading ? <Loader/> : <ItemDetail key={product.codigo} product={product} />
             })
             }
             
           </div>
-          </Suspense>
         )
 }
 export default ItemDetailContainer
