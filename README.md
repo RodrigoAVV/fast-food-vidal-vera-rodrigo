@@ -1,7 +1,7 @@
 # fast-food-vidal-vera-rodrigo
 Este proyecto está creado con React js
 
-Tienda online, venta de comida rapida
+Tienda online, venta de comida rapida. Cuando se arma una junta de improviso, se pierde mucho tiempo pensando qué preparar para comer y nada mas latoso que estar cocinando mientras los demas comparten. Por este y otros motivos con el sistema fast-food dedicate solo a compartir y pasar buenos momentos. De la comida nos encargamos nosotros.
 
 Home => Muestra todos los productos diponibles, cada producto tiene una opción de detalle y cambiar la cantidad de producto.
 

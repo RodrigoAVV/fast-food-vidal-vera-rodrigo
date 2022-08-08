@@ -38,11 +38,14 @@ const ItemListContainer = () => {
     promesProductos.then((res) => {
       setProductData(res);
     })
-  },[productData,loading,categoriaId])
+    return () => {
+      setLoading(true)
+    }
+  },[categoriaId])
   
   return(
           <div className="row">
-              {loading? <Loader/>: <ProductList productData={productData}/>}
+              { loading ? <Loader/>: <ProductList productData={productData}/> }
           </div>
         )
 }

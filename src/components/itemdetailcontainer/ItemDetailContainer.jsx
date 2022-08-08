@@ -39,14 +39,17 @@ const ItemDetailContainer = () => {
     promesProducts.then((res) => {
       setProduct(res);
     })
-  },[product,id,loading])
+    return () => {
+      setLoading(true)
+    }
+  },[id])
   
   return(
           <div className="row">
             {
-            product.map((product) => {
-                return  loading ? <Loader/> : <ItemDetail key={product.codigo} product={product} />
-            })
+              loading ? <Loader/> : product.map((prod) => {
+                return <ItemDetail key={prod.codigo} product={prod}/>
+              })
             }
             
           </div>
