@@ -3,6 +3,8 @@ import ItemCount from '../../components/itemcount/ItemCount'
 
 
 const ItemDetail = ({product}) => {
+
+
     return(
         <div className="col-sm-3" style={{marginTop:10}}>
             <div className="card">
@@ -13,7 +15,7 @@ const ItemDetail = ({product}) => {
                 <p className="card-text">{product.categoria}</p>
                 <p className="card-text">{product.precio}</p>
                 <p className="card-text">{product.recomendado ? 'Recomendado' : ''}</p>
-                <ItemCount/>
+                <ItemCount product={product}/>
             </div>
             </div>
         </div>

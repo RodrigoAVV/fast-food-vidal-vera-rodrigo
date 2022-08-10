@@ -7,7 +7,7 @@ const CartWidget = () => {
     
     <button type="button" className="btn btn-primary btn-witget">
       <img id="carrito" src={carrito}/>
-       <span className="badge bg-secondary">4</span>
+       <span className="badge bg-secondary">5</span>
     </button>
   )
 }

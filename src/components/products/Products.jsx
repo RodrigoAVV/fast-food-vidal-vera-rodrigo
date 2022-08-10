@@ -10,7 +10,6 @@ const Products = ({producto}) => {
             <h5 className="card-title">{producto.nombre}</h5>
                 <p className="card-text">{producto.descripcion}</p>
             </div>
-            <ItemCount/>
             <Link to={"/item/"+producto.codigo} className="btn btn-info" style={{width:300}} id={producto.codigo}>Detalle</Link>
         </div>
     )

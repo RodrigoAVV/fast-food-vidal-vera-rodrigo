@@ -1,10 +1,16 @@
 import React from 'react'
 import { useState } from 'react'
-import './ItemCount.css'
-const ItemCount = () => {
+import './style.css'
+import { Link } from 'react-router-dom'
+import Cart from '../cart/Cart'
+const ItemCount = ({product}) => {
   let initial = 1
   let stock = 15
   const [cantidad,setCantidad] = useState(initial)
+
+  const [btnAdd,setbtnAdd] = useState('')
+  
+  const [btnFinalizar,setbtnFinalizar] = useState('btnOcultar')
 
   const sumar = () => {
     if(cantidad < stock){
@@ -17,11 +23,21 @@ const ItemCount = () => {
         setCantidad(parseInt(cantidad)-1)
     }
   }
+
+  const onAdd = (e) => {
+    setbtnAdd('btnOcultar')
+    setbtnFinalizar('')
+  }
+
   return (
     <div className="btn-group grupo" role="group" aria-label="Basic example">
-        <button onClick={restar} type="button" className="btn btn-primary">-</button>
-        <button type="button" className="btn btn-primary">{cantidad}</button>
-        <button onClick={sumar} type="button" className="btn btn-primary">+</button>
+        <div className={btnAdd}>
+          <button onClick={restar} type="button" className="btn btn-primary">-</button>
+          <button type="button" className="btn btn-primary">{cantidad}</button>
+          <button onClick={sumar} type="button" className="btn btn-primary">+</button>
+        </div>
+        <button onClick={onAdd} className={"btn btn-secondary "+btnAdd}>Agregar al carrito</button>
+        <Link to={'/cart'} className={"btn btn-info "+btnFinalizar} >Finalizar compra</Link>
     </div>
   )
 }
