@@ -1,10 +1,10 @@
-import React from 'react'
+import React,{useEffect,useState,useContext} from 'react'
 import ItemCount from '../../components/itemcount/ItemCount'
 
 
 const ItemDetail = ({product}) => {
-
-
+    
+    
     return(
         <div className="col-sm-3" style={{marginTop:10}}>
             <div className="card">
