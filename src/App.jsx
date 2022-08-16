@@ -1,3 +1,4 @@
+import React from 'react'
 import NavBar from './components/navbar/NavBar'
 import ItemListContainer from './components/itemlistcontainer/ItemListContainer'
 import ItemDetailContainer from './components/itemdetailcontainer/ItemDetailContainer'
@@ -9,8 +10,8 @@ function App() {
   
   return (
     <>
-    <CartContext>
       <BrowserRouter>
+      <CartContext>
         <NavBar/>
         <Routes>
           <Route exact path ="/" element={<ItemListContainer/>}/>
@@ -19,8 +20,9 @@ function App() {
           <Route exact path ="/cart" element={<Cart/>}/>
           <Route exact path ="*" element={<p>404</p>}/>
         </Routes>
+        </CartContext>
       </BrowserRouter>
-    </CartContext>
+   
     </>
   )
 }
