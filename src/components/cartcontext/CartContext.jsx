@@ -8,7 +8,7 @@ const CartContext = ({children}) => {
 
     const addItem = (item,quantity) => {
        let newProductList
-       let product = productList.find(product => product.codigo == item.codigo)
+       let product = productList.find(product => product.código == item.código)
       
        if(product){
             product.quantity += quantity
@@ -21,11 +21,11 @@ const CartContext = ({children}) => {
        setProductList(newProductList)
     }
 
-    const removeItem = (codigo) => setProductList(productList.filter(product => product.codigo !== codigo))
+    const removeItem = (código) => setProductList(productList.filter(product => product.código !== código))
 
     const clear = () => setProductList([])
 
-    const isInCart = (codigo) => productList.find(product => product.codigo == codigo) ? true : false
+    const isInCart = (código) => productList.find(product => product.código == código) ? true : false
 
     const totalPrecio = () => productList.reduce((prev,act) => prev+act.quantity * act.precio,0)
 

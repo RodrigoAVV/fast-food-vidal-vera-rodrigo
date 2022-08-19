@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 const Cart = () => {
     const {productList,totalPrecio} = useCartContext()
+    console.log(productList)
     if(productList.length == 0){
         return(
             <>
