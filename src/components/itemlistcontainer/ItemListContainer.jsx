@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import ProductList from '../itemlistcontainer/ProductList'
 import Loader from '../loader/Loader'
-import {collection,getDocs,getFirestore} from 'firebase/firestore'
+import {collection,getDocs,getFirestore,query,where} from 'firebase/firestore'
 
 const ItemListContainer = () => {
   const [productData,setProductData] = useState([])
@@ -11,8 +11,13 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     const db = getFirestore()
-    
-    const miCollection = collection(db,'productos')
+    let miCollection
+    if(categoriaId==undefined){
+      miCollection = collection(db,'productos')
+    }else{
+      miCollection = query(collection(db,'productos'),
+      where('categoría','==',categoriaId))
+    }
 
     getDocs(miCollection).then((data) => {
       const auxProducts = data.docs.map((product) => ({
@@ -21,13 +26,11 @@ const ItemListContainer = () => {
       }))
       setLoading(false)
       setProductData(auxProducts)
-      console.log(auxProducts)
     })
     
     return () => {
       setLoading(true)
     }
-
   },[categoriaId])
   
   return(

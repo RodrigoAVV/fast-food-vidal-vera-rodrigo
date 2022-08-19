@@ -3,7 +3,7 @@ import { useCartContext } from '../cartcontext/CartContext'
 
 const CartItem = ({product}) => {
     const {removeItem} = useCartContext()
-   
+   console.log(product)
     return(
         <div className="col-sm-3" style={{marginTop:10}}>
         <div className="card">

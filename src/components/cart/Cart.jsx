@@ -16,7 +16,7 @@ const Cart = () => {
     return(
         <div className="row">
             {
-                productList.map(product => <CartItem key={product.codigo} product={product}/>)
+                productList.map(product => <CartItem key={product.id} product={product}/>)
             }
             <p>total:{totalPrecio()}</p>
         </div>
