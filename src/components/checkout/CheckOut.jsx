@@ -16,14 +16,23 @@ const CheckOut = () => {
     const [nombre,setNombre] = useState('')
     const [telefono,setTelefono] = useState('')
     const [correo,setCorreo] = useState('')
+    const newDate = new Date()
+    const date = newDate.getDate()
 
     const terminarCompra = () => {
-        const order = {buyer: {nombre,telefono,correo},items:[productList],total:total}
+        const order = {buyer:
+                        {
+                            nombre:nombre,teléfono:telefono,correo:correo
+                        },
+                        items:
+                            [...productList],
+                        total:total,
+                        fecha:new Date()
+                    }
         const db = getFirestore()
         const refCollection = collection(db,'orders')
-        console.log(order)
         addDoc(refCollection,order).then((res)=>{
-           console.log(res)
+           console.log(res.id)
         })
         
     }
