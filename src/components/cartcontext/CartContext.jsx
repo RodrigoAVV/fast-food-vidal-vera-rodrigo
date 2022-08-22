@@ -27,7 +27,7 @@ const CartContext = ({children}) => {
 
     const isInCart = (código) => productList.find(product => product.código == código) ? true : false
 
-    const totalPrecio = () => productList.reduce((prev,act) => prev+act.quantity * act.precio,0)
+    const totalPrecio = () => {return productList.reduce((prev,act) => prev+act.quantity * act.precio,0)}
 
     const totalProductos = () => productList.reduce((acumulador, productoActual) => acumulador + productoActual.quantity,0)
 

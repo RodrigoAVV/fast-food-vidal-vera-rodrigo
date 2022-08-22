@@ -14,7 +14,7 @@ const CartItem = ({product}) => {
             <p className="card-text">{product.categoria}</p>
             <p className="card-text">{product.precio+' X '+product.quantity}</p>
             <p className="card-text">{product.recomendado ? 'Recomendado' : ''}</p>
-            <button onClick={() => removeItem(product.codigo)} className="btn btn-primary btn-witget">Eliminar</button>
+            <button onClick={() => removeItem(product.código)} className="btn btn-primary btn-witget">Eliminar</button>
         </div>
         </div>
     </div>
