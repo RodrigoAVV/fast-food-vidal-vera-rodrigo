@@ -5,6 +5,7 @@ import {addDoc,collection,getFirestore} from 'firebase/firestore'
 
 
 const CheckOut = () => {
+    const [mensaje,setMensaje] = useState('')
 
     const {productList,totalPrecio} = useCartContext()
     
@@ -16,8 +17,9 @@ const CheckOut = () => {
     const [nombre,setNombre] = useState('')
     const [telefono,setTelefono] = useState('')
     const [correo,setCorreo] = useState('')
-    const newDate = new Date()
-    const date = newDate.getDate()
+
+    const today = new Date()
+    let   date =  today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear()
 
     const terminarCompra = () => {
         const order = {buyer:
@@ -27,17 +29,18 @@ const CheckOut = () => {
                         items:
                             [...productList],
                         total:total,
-                        fecha:new Date()
+                        fecha:date
                     }
         const db = getFirestore()
         const refCollection = collection(db,'orders')
         addDoc(refCollection,order).then((res)=>{
-           console.log(res.id)
+           setMensaje('Su compra se está procesando...')
         })
         
     }
 
     return(
+        <>
         <div className="input-group mb-3">
             <input type={'text'} className="form-control" placeholder="Nombre" aria-label="Nombre" value={nombre}
                 onChange={(e)=>setNombre(e.target.value)}/>
@@ -47,8 +50,11 @@ const CheckOut = () => {
             <span className="input-group-text">@</span>
             <input type={'email'} className="form-control" placeholder="Correo" aria-label="Correo" value={correo}
                 onChange={(e)=>setCorreo(e.target.value)}/>
-                <button type="button" className="btn btn-success" onClick={() => terminarCompra()}>Success</button>
-        </div>                      
+                
+        </div> 
+        <button type="button" className="btn btn-success" onClick={() => terminarCompra()}>Success</button>
+        <h3>{mensaje}</h3>
+        </>                    
     )
 }
 
