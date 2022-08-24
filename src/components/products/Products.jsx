@@ -9,10 +9,10 @@ const Products = ({producto}) => {
             <img src={"/src/components/products/img/"+producto.imagen} className="card-img-top" alt="..." style={{height:250,width:300}}/>
                 <div className="card-body">
                 <h5 className="card-title mb-0">{producto.nombre}</h5>
-                <p className="card-text mb-0">{producto.descripcion}</p>
+                <p className="card-text mb-0">{producto.descripción}</p>
                 <p className="card-text mb-0">{producto.precio}</p>
                 </div>
-                <Link to={"/item/"+producto.id} className="btn btn-info" style={{width:300}} id={producto.codigo}>Detalle</Link>
+                <Link to={"/item/"+producto.id} className="btn btn-info" style={{width:300}} id={producto.código}>Detalle</Link>
             </div>
         
     )

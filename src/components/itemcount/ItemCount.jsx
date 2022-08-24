@@ -39,7 +39,8 @@ const ItemCount = ({product}) => {
           <button onClick={sumar} type="button" className="btn btn-primary">+</button>
         </div>
         <button onClick={onAdd} className={"btn btn-secondary "+btnAdd}>Agregar al carrito</button>
-        <Link to={'/checkout'} className={"btn btn-info "+btnFinalizar} >Finalizar compra</Link>
+        <Link to={'/cart'} className={"btn btn-info "+btnFinalizar} >Finalizar compra</Link>
+       
     </div>
   )
 }

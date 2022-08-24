@@ -34,7 +34,7 @@ const CheckOut = () => {
         const db = getFirestore()
         const refCollection = collection(db,'orders')
         addDoc(refCollection,order).then((res)=>{
-           setMensaje('Su compra se está procesando...')
+           setMensaje('ID de su pedido '+ res.id)
         })
         
     }
@@ -52,7 +52,7 @@ const CheckOut = () => {
                 onChange={(e)=>setCorreo(e.target.value)}/>
                 
         </div> 
-        <button type="button" className="btn btn-success" onClick={() => terminarCompra()}>Success</button>
+        <button type="button" className="btn btn-success" onClick={() => terminarCompra()}>Realizar pedido</button>
         <h3>{mensaje}</h3>
         </>                    
     )
