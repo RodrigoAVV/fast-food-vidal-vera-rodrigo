@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from './ItemDetail'
 import Loader from '../loader/Loader'
+import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { getDoc,getFirestore,doc } from 'firebase/firestore'
 
@@ -35,7 +36,7 @@ const ItemDetailContainer = () => {
             {
               loading ? <Loader/>: <ItemDetail product={product}/> 
             }
-            
+            <Link to={'/'} className={"btn btn-info "}>Agregar mas productos</Link>
           </div>
         )
 }

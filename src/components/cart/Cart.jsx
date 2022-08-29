@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 
 const Cart = () => {
     const {productList,totalPrecio} = useCartContext()
-    console.log(productList)
     if(productList.length == 0){
         return(
             <>
@@ -19,7 +18,9 @@ const Cart = () => {
             {
                 productList.map(product => <CartItem key={product.id} product={product}/>)
             }
-            <p>total:{totalPrecio()}</p>
+            <h3>Total: {totalPrecio()}</h3>
+            <Link to={'/checkout'} className="btn btn-primary btn-witget" style={{width:200}}>Confirmar compra</Link>
+            <Link to={'/'} className={"btn btn-info "} style={{width:200}}>Agregar mas productos</Link>
         </div>
     )
 }
