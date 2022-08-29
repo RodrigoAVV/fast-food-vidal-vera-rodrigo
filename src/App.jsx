@@ -10,6 +10,7 @@ import CartContext from './components/cartcontext/CartContext'
 function App() {
   
   return (
+    
     <>
       <BrowserRouter>
       <CartContext>
@@ -24,7 +25,6 @@ function App() {
         </Routes>
         </CartContext>
       </BrowserRouter>
-   
     </>
   )
 }

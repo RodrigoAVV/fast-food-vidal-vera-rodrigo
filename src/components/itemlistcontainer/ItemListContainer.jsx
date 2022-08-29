@@ -34,7 +34,7 @@ const ItemListContainer = () => {
   },[categoriaId])
   
   return(
-          <div className="row">
+          <div className="row" >
               { loading ? <Loader/>: <ProductList productData={productData}/> }
           </div>
         )

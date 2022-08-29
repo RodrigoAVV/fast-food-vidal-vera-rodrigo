@@ -6,7 +6,7 @@ const Products = ({producto}) => {
     return(
        
             <div className="col-sm-3" style={{marginTop:10}}>
-            <img src={"/src/components/products/img/"+producto.imagen} className="card-img-top" alt="..." style={{height:250,width:300}}/>
+            <img src={"/public/img/"+producto.imagen} className="card-img-top" alt="..." style={{height:250,width:300}}/>
                 <div className="card-body">
                 <h5 className="card-title mb-0">{producto.nombre}</h5>
                 <p className="card-text mb-0">{producto.descripcion}</p>
