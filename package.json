@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build-css":"node-sass --include-path scss public/scss/main.scss public/css/main.css",
+    "watch-css":"nodemon -e scss -x \"npm run build-css\""
   },
   "dependencies": {
     "firebase": "^9.9.2",
@@ -18,6 +20,8 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.0",
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.19",
     "vite": "^3.0.0"
   }
 }
