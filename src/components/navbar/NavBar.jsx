@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const NavBar = () => {
 
   return (
+    <div class="menu">
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <Link to={"/"} className="navbar-brand" href="#">Home</Link>
@@ -40,7 +41,7 @@ const NavBar = () => {
       </div>
       
     </nav>
-    
+    </div>
   )
 }
 export default NavBar
