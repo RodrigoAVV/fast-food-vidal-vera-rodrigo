@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "build-css":"node-sass --include-path scss public/scss/main.scss public/css/main.css",
-    "watch-css":"nodemon -e scss -x \"npm run build-css\""
+    "build-css": "node-sass --include-path scss public/scss/main.scss public/css/main.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
   },
   "dependencies": {
     "firebase": "^9.9.2",

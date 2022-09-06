@@ -5,7 +5,7 @@ import { useCartContext } from '../cartcontext/CartContext'
 
 const ItemCount = ({product}) => {
   let initial = 1
-  let stock = 15
+  let stock = product.stock
   const [cantidad,setCantidad] = useState(initial)
   const [btnAdd,setBtnAdd] = useState('')
   const [btnFinalizar,setBtnFinalizar] = useState('btnOcultar')
