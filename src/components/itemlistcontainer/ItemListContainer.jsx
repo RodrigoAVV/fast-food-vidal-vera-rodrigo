@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import ProductList from '../itemlistcontainer/ProductList'
+import Footer from '../footer/Footer'
 import Loader from '../loader/Loader'
 import {collection,getDocs,getFirestore,query,where} from 'firebase/firestore'
 
@@ -34,9 +35,12 @@ const ItemListContainer = () => {
   },[categoriaId])
   
   return(
-          <div className="galeria" >
-              { loading ? <Loader/>: <ProductList productData={productData}/> }
-          </div>
+    <>
+      <div className="galeria" >
+          { loading ? <Loader/>: <ProductList productData={productData}/> }
+      </div>
+      <Footer/>
+    </>
         )
 }
 export default ItemListContainer
