@@ -4,7 +4,10 @@ import CartItem from './CartItem'
 import { Link } from 'react-router-dom'
 
 const Cart = () => {
-    const {productList,totalPrecio} = useCartContext()
+    //const {productList,totalPrecio} = useCartContext()
+    const {totalPrecio} = useCartContext()
+    const productList = JSON.parse(localStorage.getItem('productList'));
+
     if(productList.length == 0){
         return(
             <>

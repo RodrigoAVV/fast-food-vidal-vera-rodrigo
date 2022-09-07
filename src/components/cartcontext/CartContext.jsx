@@ -5,9 +5,9 @@ export const useCartContext = () => useContext(MyContext)
 
 const CartContext = ({children}) => {
     const [productList,setProductList] = useState([])
-
     const addItem = (item,quantity) => {
        let newProductList
+       
        let product = productList.find(product => product.código == item.código)
       
        if(product){
@@ -19,17 +19,27 @@ const CartContext = ({children}) => {
             newProductList = [...productList,product]
        }
        setProductList(newProductList)
+       localStorage.setItem('productList',JSON.stringify(productList))
     }
 
-    const removeItem = (código) => setProductList(productList.filter(product => product.código !== código))
+    const removeItem = (código) => {
+        setProductList(productList.filter(product => product.código !== código))
+    }
 
     const clear = () => setProductList([])
 
-    const isInCart = (código) => productList.find(product => product.código == código) ? true : false
+    const isInCart = (código) => {
+        productList.find(product => product.código == código) ? true : false
+    }
+    const totalPrecio = () => {
+        const productList = JSON.parse(localStorage.getItem('productList'));
+        return productList.reduce((prev,act) => prev+act.quantity * act.precio,0)
+    }
 
-    const totalPrecio = () => {return productList.reduce((prev,act) => prev+act.quantity * act.precio,0)}
-
-    const totalProductos = () => productList.reduce((acumulador, productoActual) => acumulador + productoActual.quantity,0)
+    const totalProductos = () => {
+        const productList = JSON.parse(localStorage.getItem('productList'));
+        return productList.reduce((acumulador, productoActual) => acumulador + productoActual.quantity,0)
+    }
 
     return(
         <>

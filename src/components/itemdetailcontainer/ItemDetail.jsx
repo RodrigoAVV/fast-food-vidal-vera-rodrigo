@@ -5,18 +5,14 @@ import { Link } from 'react-router-dom'
 
 const ItemDetail = ({product}) => {
     return(
-        <div className="col-sm-3" style={{marginTop:10}}>
-            <div className="card">
-            <img src={"/public/img/"+product.imagen} className="card-img-top" alt="..."/>
-            <div className="card-body">
-                <h5 className="card-title">{product.nombre}</h5>
-                <p className="card-text">{product.descripción}</p>
-                <p className="card-text">{product.categoría}</p>
-                <p className="card-text">{product.precio}</p>
-                <p className="card-text">{product.recomendado ? 'Recomendado' : ''}</p>
-                <ItemCount product={product}/>
-            </div>
-            </div>
+        <div className="galeria-products">
+            <img src={"/public/img/"+product.imagen} alt="..."/>
+            <h5 className="titulo">{product.nombre}</h5>
+            <p className="desc">{product.descripción}</p>
+            <p className="desc">{product.categoría}</p>
+            <p className="precio">{product.precio}</p>
+            <p className="desc">{product.recomendado ? 'Recomendado' : ''}</p>
+            <ItemCount product={product}/>
         </div>
     )
 }

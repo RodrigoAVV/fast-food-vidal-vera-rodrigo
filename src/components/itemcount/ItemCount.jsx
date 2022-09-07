@@ -33,14 +33,14 @@ const ItemCount = ({product}) => {
   
   return (
     <div className="btn-group grupo" role="group" aria-label="Basic example">
-        <div className={btnAdd}>
+        <div className={btnAdd+' btn-cont'}>
           <button onClick={restar} type="button" className="btn btn-primary">-</button>
           <button type="button" className="btn btn-primary">{cantidad}</button>
           <button onClick={sumar} type="button" className="btn btn-primary">+</button>
         </div>
-        <button onClick={onAdd} className={"btn btn-secondary "+btnAdd}>Agregar al carrito</button>
-        <Link to={'/cart'} className={"btn btn-info "+btnFinalizar} >Finalizar compra</Link>
-       
+        <button onClick={onAdd} className={"btn btn-secondary btn-item"+btnAdd}>Agregar al carrito</button>
+        <Link to={'/cart'} className={"btn btn-info btn-fin"+btnFinalizar} >Finalizar compra</Link>
+        <Link to={'/'} className={"btn btn-secondary btn-item"}>Agregar mas productos</Link>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import CheckOut from './components/checkout/CheckOut'
 import Cart from './components/cart/Cart'
 import { BrowserRouter,Routes, Route } from 'react-router-dom'
 import CartContext from './components/cartcontext/CartContext'
+import '../public/css/main.css'
 
 function App() {
   
