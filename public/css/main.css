@@ -51,7 +51,12 @@
     .galeria .galeria-products .btn-cant {
       width: 3rem; }
     .galeria .galeria-products .btn-agregar {
-      width: 7rem; }
+      height: 2.4rem;
+      width: 7.8rem; }
+    .galeria .galeria-products .img-cart {
+      height: 13rem;
+      width: 100%; }
 
 .footer {
-  grid-area: footer; }
+  grid-area: footer;
+  border: 2px solid; }

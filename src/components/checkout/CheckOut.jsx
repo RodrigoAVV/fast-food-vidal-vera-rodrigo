@@ -22,22 +22,26 @@ const CheckOut = () => {
         setTotal(totalPrecio())
     }, [total])
     const terminarCompra = () => {
-        const order = {
-            buyer:
-            {
-                nombre: nombre, teléfono: telefono, correo: correo
-            },
-            items:
-                [...productList],
-            total: total,
-            fecha: date
+        if (nombre == '' || telefono == '' || correo == '') {
+            setMensaje('Faltan datos por ingresar')
+        }else {
+            const order = {
+                buyer:
+                {
+                    nombre: nombre, teléfono: telefono, correo: correo
+                },
+                items:
+                    [...productList],
+                total: total,
+                fecha: date
+            }
+            const db = getFirestore()
+            const refCollection = collection(db, 'orders')
+            addDoc(refCollection, order).then((res) => {
+                setMensaje('ID de su pedido ' + res.id)
+            })
+            actualizarCantidad(order.items)
         }
-        const db = getFirestore()
-        const refCollection = collection(db, 'orders')
-        addDoc(refCollection, order).then((res) => {
-            setMensaje('ID de su pedido ' + res.id)
-        })
-        actualizarCantidad(order.items)
     }
     const actualizarCantidad = (items) => {
         items.forEach(element => {
@@ -47,7 +51,7 @@ const CheckOut = () => {
                 const aux = {
                     ...item.data()
                 }
-                updateDoc(refDoc, { stock: parseInt(aux.stock) - parseInt(element.quantity)})
+                updateDoc(refDoc, { stock: parseInt(aux.stock) - parseInt(element.quantity) })
             })
         })
     }

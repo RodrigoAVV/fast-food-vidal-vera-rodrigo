@@ -4,10 +4,7 @@ import CartItem from './CartItem'
 import { Link } from 'react-router-dom'
 
 const Cart = () => {
-    //const {productList,totalPrecio} = useCartContext()
-    const {totalPrecio} = useCartContext()
-    const productList = JSON.parse(localStorage.getItem('productList'));
-
+    const {productList,totalPrecio} = useCartContext()
     if(productList.length == 0){
         return(
             <>
@@ -17,13 +14,14 @@ const Cart = () => {
         )
     }
     return(
-        <div className="row">
+        <div className="galeria">
+            <div className="galeria-products">
+                <h3>Total: {totalPrecio()}</h3>
+                <Link to={'/checkout'} className="btn btn-primary">Confirmar compra</Link>
+            </div>
             {
                 productList.map(product => <CartItem key={product.id} product={product}/>)
             }
-            <h3>Total: {totalPrecio()}</h3>
-            <Link to={'/checkout'} className="btn btn-primary btn-witget" style={{width:200}}>Confirmar compra</Link>
-            <Link to={'/'} className={"btn btn-info "} style={{width:200}}>Agregar mas productos</Link>
         </div>
     )
 }

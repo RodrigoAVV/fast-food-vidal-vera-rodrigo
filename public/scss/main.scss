@@ -62,11 +62,17 @@
 				width: 3rem;
 			}
 			.btn-agregar{
-				width: 7rem;
+				height: 2.4rem;
+				width: 7.8rem;
+			}
+			.img-cart{
+				height: 13rem;
+				width: 100%;
 			}
 		}
 }
 .footer{
 	grid-area: footer;
+	border: 2px solid;
 	
 }
