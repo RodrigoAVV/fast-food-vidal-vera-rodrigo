@@ -32,15 +32,15 @@ const ItemCount = ({product}) => {
   }
   
   return (
-    <div className="btn-group grupo" role="group" aria-label="Basic example">
-        <div className={btnAdd+' btn-cont'}>
-          <button onClick={restar} type="button" className="btn btn-primary">-</button>
-          <button type="button" className="btn btn-primary">{cantidad}</button>
-          <button onClick={sumar} type="button" className="btn btn-primary">+</button>
+    <div className="detalle">
+        <div className={btnAdd}>
+          <button onClick={restar} type="button" className="btn btn-secondary btn-cant">-</button>
+          <button type="button" className="btn btn-secondary btn-cant">{cantidad}</button>
+          <button onClick={sumar} type="button" className="btn btn-secondary btn-cant">+</button>
         </div>
-        <button onClick={onAdd} className={"btn btn-secondary btn-item"+btnAdd}>Agregar al carrito</button>
-        <Link to={'/cart'} className={"btn btn-info btn-fin"+btnFinalizar} >Finalizar compra</Link>
-        <Link to={'/'} className={"btn btn-secondary btn-item"}>Agregar mas productos</Link>
+        <button onClick={onAdd} className={"btn btn-info btn-agregar "+btnAdd}>Agregar</button>
+        <Link to={'/cart'} className={"btn btn-primary btn-finalizar "+btnFinalizar} >Finalizar</Link>
+        <Link to={'/'} className={"btn btn-success btn-mas"}>Más productos</Link>
     </div>
   )
 }

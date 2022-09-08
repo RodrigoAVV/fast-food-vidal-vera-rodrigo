@@ -41,15 +41,17 @@
       margin: 0.1rem;
       text-align: center;
       font-size: large; }
+    .galeria .galeria-products .detalle {
+      display: flex;
+      flex-direction: row;
+      border: 2px solid;
+      width: 25rem; }
     .galeria .galeria-products .btn-compra {
       width: 100%; }
-    .galeria .galeria-products .btn-cont {
-      width: 5rem;
-      border: 1px solid; }
-    .galeria .galeria-products .btn-item {
-      width: 5rem; }
-    .galeria .galeria-products .btn-fin {
+    .galeria .galeria-products .btn-cant {
       width: 3rem; }
+    .galeria .galeria-products .btn-agregar {
+      width: 7rem; }
 
 .footer {
   grid-area: footer; }
