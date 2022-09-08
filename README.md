@@ -11,4 +11,12 @@ Cantidad => Aumenta o disminuye la cantidad de producto segun lo que el cliente 
 
 Categorias => Permite seleccionar la categoria deseada (Papas, Completos, Hamburguesas, Nuggets, Pizza, Sándwitch)
 
-Cada categoria, home y detalle tiene su ruta especifica
+Cada categoria, home y detalle tiene su ruta específica
+
+1. Las cantidades maximas de productos que se pueden comprar son las que estan registradas en la base de datos firebase (por defecto 10)
+
+2. Si se compra más de un mismo producto, solo se aumenta su catidad.
+
+3. Por cada producto agregado, se va sumado el total a pagar.
+
+4. El detalle del pedido se visualiza en el carrito, donde tambien se puede eliminar el producto
