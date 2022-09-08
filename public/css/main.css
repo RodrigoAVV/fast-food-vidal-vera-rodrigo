@@ -19,13 +19,11 @@
   justify-content: space-evenly;
   align-items: stretch;
   flex-wrap: wrap;
-  align-content: center;
-  border: 0.3rem solid; }
+  align-content: center; }
   .galeria .galeria-products {
     padding-top: 0.1rem;
     height: 24rem;
-    width: 25rem;
-    border: 1px solid; }
+    width: 25rem; }
     .galeria .galeria-products img {
       height: 16rem;
       width: 100%; }
@@ -44,7 +42,6 @@
     .galeria .galeria-products .detalle {
       display: flex;
       flex-direction: row;
-      border: 2px solid;
       width: 25rem; }
     .galeria .galeria-products .btn-compra {
       width: 100%; }
@@ -58,5 +55,4 @@
       width: 100%; }
 
 .footer {
-  grid-area: footer;
-  border: 2px solid; }
+  grid-area: footer; }

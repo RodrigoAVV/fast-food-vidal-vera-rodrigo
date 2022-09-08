@@ -23,13 +23,11 @@ const CartContext = ({ children }) => {
     }
 
     const clear = () => {
-        localStorage.setItem('carrito','[]')
+        setProductList([])
     }
 
     const isInCart = (código) => {
-       
-        productList.find(product => product.código == código) ? true : false
-        return carrito
+        return productList.find(product => product.código == código) ? true : false
     }
     const totalPrecio = () => {
         return productList.reduce((prev, act) => prev + act.quantity * act.precio, 0)
@@ -41,7 +39,7 @@ const CartContext = ({ children }) => {
 
     return (
         <>
-            <MyContext.Provider value={{ productList, addItem, removeItem, clear, isInCart, totalPrecio, totalProductos }}>
+            <MyContext.Provider value={{ productList, setProductList, addItem, removeItem, clear, isInCart, totalPrecio, totalProductos }}>
                 {children}
             </MyContext.Provider>
         </>

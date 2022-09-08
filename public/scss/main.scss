@@ -24,12 +24,10 @@
 	align-items:stretch;
 	flex-wrap:wrap;
 	align-content:center;
-	border: 0.3rem solid;
 	.galeria-products{
 			padding-top: 0.1rem;
 			height: 24rem;
 			width: 25rem;
-			border: 1px solid;
 			img{
 				height: 16rem;
 				width: 100%;
@@ -52,7 +50,6 @@
 			.detalle{
 				display: flex;
 				flex-direction:row;
-				border: 2px solid;
 				width: 25rem;
 			}
 			.btn-compra{
@@ -73,6 +70,5 @@
 }
 .footer{
 	grid-area: footer;
-	border: 2px solid;
 	
 }
